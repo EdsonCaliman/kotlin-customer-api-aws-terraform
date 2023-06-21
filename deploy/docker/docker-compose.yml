@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  customer-api:
+      container_name: customer-api
+      image: kotlin-customer-api-aws-terraform:latest
+      environment:
+        TZ: "America/Sao_Paulo"
+      ports:
+        - "8080:8080"
+      restart: always

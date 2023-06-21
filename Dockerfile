@@ -1,6 +1,8 @@
 FROM openjdk:19-jdk-alpine
 
-ADD /target/kotlin-customer-api-aws-terraform.jar app.jar
+VOLUME /tmp
+
+COPY target/*.jar app.jar
 
 CMD exec java $JAVA_OPTS \
     -Duser.timezone=America/Sao_Paulo \
