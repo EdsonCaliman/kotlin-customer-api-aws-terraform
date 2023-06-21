@@ -23,6 +23,6 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Build & Push Image
       run: |
-        docker login -u $DOCKER_USERNAME -p ${{ secrets.DOCKER_PASSWORD }}
-        docker image build -t $DOCKER_USERNAME/kotlin-customer-api-aws-terraform .
-        docker push $DOCKER_USERNAME/kotlin-customer-api-aws-terraform
+        docker login -u ${{ env.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker image build -t ${{ env.DOCKER_USERNAME }}/kotlin-customer-api-aws-terraform .
+        docker push ${{ env.DOCKER_USERNAME }}/kotlin-customer-api-aws-terraform
