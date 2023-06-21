@@ -8,9 +8,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up JDK 17
@@ -23,9 +21,8 @@ jobs:
       run: mvn -B package --file pom.xml
 
   push:
-
     runs-on: ubuntu-latest
-
+    needs: build
     steps:
     - uses: actions/checkout@v3
     - name: Build & Push Image
