@@ -2,7 +2,9 @@
 Kotlin project to deploy in AWS using terraform
 
 Docker commands:
+
     docker build -t edsoncaliman/kotlin-customer-api-aws-terraform .
+    
     docker run -d -p 8080:8080 kotlin-customer-api-aws-terraform
     
 
