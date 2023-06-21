@@ -1,7 +1,7 @@
 resource "aws_security_group" "customer_sg" {
-  name = "customerapi_sg"
+  name        = "customerapi_sg"
   description = "customer api security group"
-  vpc_id = aws_vpc.customer_vpc.id
+  vpc_id      = aws_vpc.customer_vpc.id
 }
 
 resource "aws_security_group_rule" "sgr_pub_out" {
@@ -10,7 +10,7 @@ resource "aws_security_group_rule" "sgr_pub_out" {
   security_group_id = aws_security_group.customer_sg.id
   to_port           = 0
   type              = "egress"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "sgr_ssh_in" {
@@ -19,7 +19,7 @@ resource "aws_security_group_rule" "sgr_ssh_in" {
   security_group_id = aws_security_group.customer_sg.id
   to_port           = 22
   type              = "ingress"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 
 resource "aws_security_group_rule" "sgr_https_in" {
@@ -28,11 +28,11 @@ resource "aws_security_group_rule" "sgr_https_in" {
   security_group_id = aws_security_group.customer_sg.id
   to_port           = 443
   type              = "ingress"
-  cidr_blocks = ["0.0.0.0/0"]
+  cidr_blocks       = ["0.0.0.0/0"]
 }
 
 resource "aws_key_pair" "customer_key" {
-  key_name = "kotlin-spring"
+  key_name   = "kotlin-spring"
   public_key = file("/home/edsonjunior/.ssh/kotlin-spring.pub")
 }
 

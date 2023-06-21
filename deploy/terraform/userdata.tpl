@@ -28,7 +28,7 @@
 #clone your project from git repository
     git clone https://github.com/EdsonCaliman/kotlin-customer-api-aws-terraform.git
     cd kotlin-customer-api-aws-terraform
-    git checkout master
+    git checkout main
     git pull
     cd deploy/docker
 
