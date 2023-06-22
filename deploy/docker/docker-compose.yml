@@ -1,5 +1,4 @@
-version: '3'
-
+version: "3.7"
 services:
   customer-api:
       container_name: customer-api
@@ -11,7 +10,13 @@ services:
       restart: always
       deploy:
         resources:
-          limits:
-            memory: 700M
           reservations:
-            memory: 700M
+            memory: 400M
+          limits:
+            memory: 1000M
+      healthcheck:
+        test: wget -q http://localhost:8080/actuator/health -O - | grep "{\"status\":\"UP\"}" || exit 1
+        interval: 60s
+        retries: 3
+        start_period: 2m
+        timeout: 15s
